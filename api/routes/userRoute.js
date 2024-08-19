@@ -88,12 +88,7 @@ router.put("profile/password",jwtAuthMiddleware,async(req,res)=>{
        user.password = newPassword
        await user.save()
        
-      const updatedUserData = req.body;
-
-      const response = await findByIdAndUpdate(id,updatedUserData,{
-         new : true,
-         runValidators : true
-      })
+      
 
       if(!response) return res.status(401).json({error : "User Not Found"})
 
@@ -104,3 +99,10 @@ router.put("profile/password",jwtAuthMiddleware,async(req,res)=>{
 
    }
 })
+
+// const updatedUserData = req.body;
+
+//       const response = await findByIdAndUpdate(id,updatedUserData,{
+//          new : true,
+//          runValidators : true
+//       })
